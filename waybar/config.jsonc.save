@@ -1,0 +1,170 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+
+    "spacing": 0, // Gaps between modules (0px) Adjusted in the css
+
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    "modules-left": [
+        "cpu",
+        "memory",
+        "temperature",
+        "disk"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "network",
+        "battery",
+        "backlight",
+	"pulseaudio",
+        "clock",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "on-click": "activate"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "tooltip": true,
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {}%",
+        "tooltip": true,
+    },
+    "temperature": {
+        "interval": 5,
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+    },
+    "disk": {
+        "interval": 5,
+        "format": " {percentage_used}%",
+        "tooltip": true,
+        "on-click": "kitty sh -c 'btop'",
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "separate-outputs": true,
+        "max-length": 35
+    },
+    "network": {
+        "format": " {bandwidthTotalBytes}",
+        "format-alt": " {bandwidthUpBytes} |  {bandwidthDownBytes}",
+        "format-disconnected": "{icon} No Internet",
+        "format-linked": "{ifname} (No IP)",
+
+        "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "{icon} Disconnected",
+
+        "tooltip-format": " {ifname}: {ipaddr}/{cidr}  {gwaddr}",
+
+
+        "on-click-right": "kitty sh -c nmtui-connect",
+        "format-icons": {
+            "ethernet": "",
+            "disconnected": "⚠",
+            "wifi": [
+                "",
+                ""
+            ]
+        },
+        "interval": 2
+    },
+    "pulseaudio": {
+         "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": "",
+        "format-muted": "",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": " ",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "flatpak run com.saivert.pwvucontrol"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+	"format-icons": ["", "", "", "", "", "", "", "", ""],
+	//"format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
+        "on-scroll-up": "brightnessctl s +1%",
+        "on-scroll-down": "brightnessctl s 1%-",
+        "interval": 2
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 15
+    },
+    "clock": {
+        "timezone": "America/Bogota",
+        "format": " {:%d <small>%a</small> %H:%M}",
+        //"format": " {:%a %b %d %Y | %H:%M}",
+        "format-alt": " {:%A %B %d %Y | %r}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar-weeks-pos": "right",
+        "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+        "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
+        "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "interval": 60
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/power": {
+        "format": "{}",
+        "exec": "~/.scripts/tools/expand power",
+        "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+        "return-type": "json",
+        "on-click": "~/.config/wlogout/launch.sh"
+    },
+}
