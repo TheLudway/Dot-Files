@@ -103,8 +103,8 @@
       "~": "  Terminal",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
-      "sejjy@archlinux:(.*)": "  Terminal",
-      "(.*)sejjy@archlinux:~": "  Terminal",
+      "marie@marie:(.*)": "  Terminal",
+      "(.*)marie@marie:~": "  Terminal",
 
       // == Browser ==
 
@@ -131,6 +131,16 @@
         "<span foreground='#89b4fa'> </span> $1",
       "(.*) - Godot Engine": 
         "<span foreground='#89b4fa'> </span> $1",
+
+      "(.*) - Doom Emacs":
+        "<span foreground='#89b4fa>' </span> Doom Emacs",
+      "(.*)Doom Emacs":
+        "<span foreground='#89b4fa'> </span> Emacs",
+
+      "(.*) - Nano":
+        "<span foreground='#89b4fa>' </span> Nano",
+      "(.*)Nano(.*)":
+        "<span foreground='#89b4fa'> </span> Nano",
 
       // == Media ==
 
@@ -164,6 +174,13 @@
       "• Discord(.*)": "Discord$1",
       "(.*)Discord(.*)": 
         "<span foreground='#89b4fa'> </span> $1Discord$2",
+
+      "Telegram":
+       "<span foreground='#89b4fa'> </span> Telegram",
+
+      "Telegram (.*)": "Telegram$1",
+      "(.*)Telegram(.*)":
+       "<span foreground='#89b4fa'> </span> $1Telegram$2",
 
       // == Documents ==
 
