@@ -86,8 +86,9 @@
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
+       (pyenv)
        ;;ansible
-       ;;biblio            ; Writes a PhD for you (citation needed)
+       biblio            ; Writes a PhD for you (citation needed)
        ;;collab            ; buffers with friends
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
@@ -185,7 +186,7 @@
        :app
        ;;calendar
        ;;emms
-       ;;everywhere        ; *leave* Emacs!? You must be joking
+       everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
@@ -238,3 +239,25 @@
 
 ;; Fogata en Emacs
 (load "~/.config/emacs/fireplace/fireplace.el")
+
+;; pyvenv
+(setenv "WORKON_HOME" "/home/marie/anaconda3/envs")
+;;(pyvenv-mode 1)
+
+;; Anaconda
+(add-to-list 'exec-path "~/anaconda3/jupyter")
+
+;; Dired cerrar varias cosas 
+(setq dired-kill-when-opening-new-dired-buffer t)
+
+;; Dired mostrar todos los archivos 
+(setq dired-listing-switches "-lah")
+
+;; Shell completion
+(autoload 'bash-completion-dynamic-complete
+  "bash-completion"
+  "BASH completion hook")
+(add-hook 'shell-dynamic-complete-functions
+          'bash-completion-dynamic-complete)
+
+

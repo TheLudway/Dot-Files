@@ -12,7 +12,7 @@
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-variablee-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
 ;; - `doom-symbol-font' -- for symbols
@@ -106,3 +106,6 @@
 
 ;; Relative number
 (setq display-line-numbers-type 'relative)
+
+;; Docview para que el scroll sea continuo
+(setq doc-view-continuous t)
