@@ -240,17 +240,10 @@
 ;; Fogata en Emacs
 (load "~/.config/emacs/fireplace/fireplace.el")
 
-;; pyvenv
-(setenv "WORKON_HOME" "/home/marie/anaconda3/envs")
-;;(pyvenv-mode 1)
-
-;; Anaconda
-(add-to-list 'exec-path "~/anaconda3/jupyter")
-
-;; Dired cerrar varias cosas 
+;; Dired cerrar varias cosas
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-;; Dired mostrar todos los archivos 
+;; Dired mostrar todos los archivos
 (setq dired-listing-switches "-lah")
 
 ;; Shell completion
@@ -259,5 +252,3 @@
   "BASH completion hook")
 (add-hook 'shell-dynamic-complete-functions
           'bash-completion-dynamic-complete)
-
-
